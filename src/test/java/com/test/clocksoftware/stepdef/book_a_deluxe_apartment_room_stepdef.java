@@ -1,6 +1,7 @@
 package com.test.clocksoftware.stepdef;
 
 import com.test.clocksoftware.Util.DriverManager;
+import com.test.clocksoftware.Util.ReusableFunctions;
 import com.test.clocksoftware.pages.*;
 
 import io.cucumber.java.After;
@@ -40,7 +41,7 @@ public class book_a_deluxe_apartment_room_stepdef {
 
     @Given("I am on homepage")
     public void i_am_on_homepage() {
-        context.getDriver().get("https://www.clock-software.com/demo-clockpms/index.html");
+        context.getDriver().get(context.readJsonData("defaultproperties","url"));
         homePage = new HomePage(context);
         roomSelectionPage =new RoomSelectionPage(context);
         extraServicesPage=new ExtraServicesPage(context);

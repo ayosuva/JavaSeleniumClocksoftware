@@ -1,0 +1,32 @@
+{
+  "defaultproperties":{
+    "url": "https://www.clock-software.com/demo-clockpms/index.html",
+    "emailID": "dummy@gail.com",
+    "lastName": "Kholi",
+    "firstName": "Virat",
+    "phoneNumber": "0789654321",
+    "numberOfNights": "4",
+    "numberOfAdults": "2",
+    "numberOfChild": "0"
+  },
+
+
+
+  "creditCardDetails": {
+    "number": "NDkyOSAwMDAwIDAwMDAgNg==",
+    "brand": "VklTQQ==",
+    "expiryMonth": "MDU=",
+    "expiryYear": "MjAyNQ=="
+  },
+
+
+
+  "billingAddressDetails":{
+    "addLine":"10 Park Hill Bvld",
+    "zip":"43015",
+    "city":"London",
+    "state":"Sussex",
+    "country": "United Kingdom"
+  }
+
+}
