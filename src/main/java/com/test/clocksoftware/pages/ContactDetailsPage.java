@@ -13,20 +13,19 @@ public class ContactDetailsPage extends PageBase {
         super(manager);
     }
 
-    By input_Email = By.xpath("//input[@title='E-mail']");
-    By input_LastName = By.xpath("//input[@id='booking_guest_attributes_last_name']");
-    By input_FirstName = By.xpath("//input[@id='booking_guest_attributes_first_name']");
-    By input_Phone = By.xpath("//input[@id='booking_guest_attributes_phone_number']");
-    By radio_CreditCard = By.xpath("//input[@id='booking_payment_service_credit_card_collect']");
+    By input_Email              = By.xpath("//input[@title='E-mail']");
+    By input_LastName           = By.xpath("//input[@id='booking_guest_attributes_last_name']");
+    By input_FirstName          = By.xpath("//input[@id='booking_guest_attributes_first_name']");
+    By input_Phone              = By.xpath("//input[@id='booking_guest_attributes_phone_number']");
+    By radio_CreditCard         = By.xpath("//input[@id='booking_payment_service_credit_card_collect']");
     By checkbox_TermsConditions = By.xpath("//input[@title='I agree with the hotel and guarantee policy']");
-    By btn_create_Booking = By.xpath("//input[@value='Create Booking']");
-
-    By label_arrival = By.xpath("//*[text()='Arrival']/following::div[1]");
-    By label_No_of_nights = By.xpath("//*[text()='Stay']/following::div[1]");
-    By label_Room_type = By.xpath("//*[text()='Room Type']/following::div[1]");
-    By label_Rate = By.xpath("//*[text()='Rate']/following::div[1]");
-    By label_Add_on = By.xpath("//*[text()='Extra Services']/following::div[1]");
-    By label_Total = By.xpath("//div[@class='row total_charges']//*[contains(text(),'EUR')]");
+    By btn_create_Booking       = By.xpath("//input[@value='Create Booking']");
+    By label_arrival            = By.xpath("//*[text()='Arrival']/../following-sibling::div");
+    By label_No_of_nights       = By.xpath("//*[text()='Stay']/../following-sibling::div");
+    By label_Room_type          = By.xpath("//*[text()='Room Type']/../following-sibling::div");
+    By label_Rate               = By.xpath("//*[text()='Rate']/../following-sibling::div");
+    By label_Add_on             = By.xpath("//*[text()='Extra Services']/../following-sibling::div");
+    By label_Total              = By.xpath("//div[@class='row total_charges']//*[contains(text(),'EUR')]");
 
     public void enter_user_details_and_create_booking() {
         getWebElementVisible(input_Email).sendKeys("test@testxx.com");

@@ -2,14 +2,15 @@ package com.test.clocksoftware.pages;
 
 import com.test.clocksoftware.Util.DriverManager;
 import org.openqa.selenium.*;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.ui.*;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 import java.util.function.Function;
 
 public class RoomSelectionPage extends PageBase {
@@ -18,17 +19,17 @@ public class RoomSelectionPage extends PageBase {
         super(manager);
     }
 
-    By label_room_types=By.xpath("//div[contains(@class,'bookable-container bookable-location')]//h2");
-    By btn_Check_availability_calendar=By.xpath("//a[contains(text(),'Check availability calendar')]");
-    String  iframe_id="clock_pms_iframe_1";
-    By label_Dates=By.xpath("//h4[contains(text(),'Deluxe Appartment')]/../../following-sibling::div[1]//a[contains(@class,'list-group-item list-group-item')]");
-    By btn_Next_Page=By.xpath("//div[@class='icon-double-angle-right']");
-    By btn_search_For_Available_Rooms= By.xpath("//input[@value='Search for available rooms']");
-    By label_selected_Date= By.xpath("//div[@class='h2 text-center']");
-    By label_price=By.xpath("//h2[contains(text(),'Deluxe Appartment')]/../../following-sibling::div[1]//tr[@class='room-type']//td[@class='text-right hidden-xs']//*[contains(text(),'EUR')]");
-    By btn_Select=By.xpath("//span[@class='pull-right']//a[@class='btn btn-success ']//i");
+    By label_room_types                = By.xpath("//div[contains(@class,'bookable-container bookable-location')]//h2");
+    By btn_Check_availability_calendar = By.xpath("//a[contains(text(),'Check availability calendar')]");
+    By label_Dates                     = By.xpath("//h4[contains(text(),'Deluxe Appartment')]/../../following-sibling::div[1]//a[contains(@class,'list-group-item list-group-item')]");
+    By btn_Next_Page                   = By.xpath("//div[@class='icon-double-angle-right']");
+    By btn_search_For_Available_Rooms  = By.xpath("//input[@value='Search for available rooms']");
+    By label_selected_Date             = By.xpath("//div[@class='h2 text-center']");
+    By label_price                     = By.xpath("//h2[contains(text(),'Deluxe Appartment')]/../../following-sibling::div[1]//tr[@class='room-type']//td[@class='text-right hidden-xs']//*[contains(text(),'EUR')]");
+    By btn_Select                      = By.xpath("//span[@class='pull-right']//a[@class='btn btn-success ']//i");
+    By label_from_date_period          = By.xpath("//input[@id='form_period_from_date']");
+    String  iframe_id                  = "clock_pms_iframe_1";
     public Double highest_value;
-
 
     public String bookDeluxeApartment(){
          driver.switchTo().frame(iframe_id);
@@ -48,11 +49,11 @@ public class RoomSelectionPage extends PageBase {
                      String class_attribute="";
                      try{
                          class_attribute=list_dates_availability.get(i).getAttribute("class");
-
                      }
                      catch (StaleElementReferenceException exception){
-                         list_dates_availability =getWebElementsVisible(label_Dates) ;
-                         class_attribute=list_dates_availability.get(i).getAttribute("class");
+                         //wait(2000);
+                         //list_dates_availability =getWebElementsVisible(label_Dates) ;
+                         //class_attribute=list_dates_availability.get(i).getAttribute("class");
                      }
                      if(class_attribute.contains("danger"))
                      {
@@ -62,7 +63,7 @@ public class RoomSelectionPage extends PageBase {
                      {
                          numberOfNights+=1;
                      }
-                     if(numberOfNights==4)
+                         if(numberOfNights==4)
                      {
                          list_dates_availability.get(i-3).click();
                          break;
@@ -70,7 +71,16 @@ public class RoomSelectionPage extends PageBase {
                  }
                  if(numberOfNights!=4)
                  {
+                     String current_Date =driver.findElement(label_from_date_period).getAttribute("value");
+                     //Adding date
+                     String next_date=getDateWithFormat("dd MMM yyyy",current_Date,12);
+
                      retryClick(btn_Next_Page);
+                     Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
+                             .withTimeout(Duration.ofSeconds(10))
+                             .pollingEvery(Duration.ofSeconds(1))
+                             .ignoring(StaleElementReferenceException.class);
+                     wait.until(ExpectedConditions.attributeToBe(label_from_date_period,"value",next_date));
                  }
                  else{
                      getWebElementVisible(btn_search_For_Available_Rooms).click();
@@ -117,6 +127,12 @@ public class RoomSelectionPage extends PageBase {
         return date;
     }
 
+    public void test()
+    {
+        String string = "January 2, 2010";
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM d, yyyy", Locale.ENGLISH);
+        LocalDate date = LocalDate.parse(string, formatter);
+    }
 
 
 }

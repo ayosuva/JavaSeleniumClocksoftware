@@ -10,19 +10,17 @@ public class PaymentPage extends PageBase{
     {
         super(manager);
     }
-    By input_CardNumber = By.xpath("//input[@id='cardNumber']");
-    By dropdown_cardTypes = By.xpath("//select[@id='credit_card_collect_purchase_brand']");
+    By input_CardNumber     = By.xpath("//input[@id='cardNumber']");
+    By dropdown_cardTypes   = By.xpath("//select[@id='credit_card_collect_purchase_brand']");
     By dropdown_expiryMonth = By.xpath("//select[@id='cardExpirationMonth']");
-    By dropdown_expiryYear = By.xpath("//select[@id='cardExpirationYear']");
-
-    By input_address = By.xpath("//input[@id='credit_card_collect_purchase_address']");
-    By input_zip = By.xpath("//input[@id='credit_card_collect_purchase_zip']");
-    By input_city = By.xpath("//input[@id='credit_card_collect_purchase_city']");
-    By input_state = By.xpath("//input[@id='credit_card_collect_purchase_state']");
-    By dropdown_country = By.xpath("//select[@id='credit_card_collect_purchase_country']");
-    By btn_confirm = By.xpath("//button[@class='btn btn-success btn-lg btn-block']");
-
-    By bookingMsg=By.xpath("//h3[text()='Check your e-mail for booking confirmation.']");
+    By dropdown_expiryYear  = By.xpath("//select[@id='cardExpirationYear']");
+    By input_address        = By.xpath("//input[@id='credit_card_collect_purchase_address']");
+    By input_zip            = By.xpath("//input[@id='credit_card_collect_purchase_zip']");
+    By input_city           = By.xpath("//input[@id='credit_card_collect_purchase_city']");
+    By input_state          = By.xpath("//input[@id='credit_card_collect_purchase_state']");
+    By dropdown_country     = By.xpath("//select[@id='credit_card_collect_purchase_country']");
+    By btn_confirm          = By.xpath("//button[@class='btn btn-success btn-lg btn-block']");
+    By bookingMsg           = By.xpath("//h3[text()='Check your e-mail for booking confirmation.']");
 
     public void enterPaymentDetails()
     {

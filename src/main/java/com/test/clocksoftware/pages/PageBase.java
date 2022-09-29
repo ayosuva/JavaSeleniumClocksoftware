@@ -13,8 +13,14 @@ import java.awt.image.DataBufferByte;
 import java.awt.image.WritableRaster;
 import java.io.File;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.util.Calendar;
 import java.util.List;
+
+import static javax.swing.text.html.CSS.getAttribute;
+
 /**
  * Created by Yosuva
  */
@@ -56,4 +62,15 @@ public class PageBase {
         return result;
     }
 
+    public String getDateWithFormat(String format,String date,int numberOfDaysToBeAdded){
+        SimpleDateFormat dateFormat = new SimpleDateFormat( format );
+        Calendar cal = Calendar.getInstance();
+        try {
+            cal.setTime(dateFormat.parse(date));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        cal.add( Calendar.DATE, numberOfDaysToBeAdded);
+        return dateFormat.format(cal.getTime());
+    }
 }

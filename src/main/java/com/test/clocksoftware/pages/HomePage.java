@@ -12,9 +12,9 @@ public class HomePage extends PageBase {
         super(manager);
     }
 
-    By input_Arrival_Date=By.xpath("//input[@id='date-start']");
-    By input_Number_Of_Nights=By.xpath("//input[@id='to-place']");
-    By btn_Book_Now=By.xpath("//input[@value='Book now !']");
+    By input_Arrival_Date       = By.xpath("//input[@id='date-start']");
+    By input_Number_Of_Nights   = By.xpath("//input[@id='to-place']");
+    By btn_Book_Now             = By.xpath("//input[@value='Book now !']");
 
     public void enter_Arrival_Date(){
         SimpleDateFormat simpleDateFormat=new SimpleDateFormat("dd-MM-yyyy");
