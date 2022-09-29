@@ -46,15 +46,8 @@ public class RoomSelectionPage extends PageBase {
              while(numberOfNights<=3) {
                  list_dates_availability =getWebElementsVisible(label_Dates) ;
                  for (int i = 0; i < list_dates_availability.size(); i++) {
-                     String class_attribute="";
-                     try{
-                         class_attribute=list_dates_availability.get(i).getAttribute("class");
-                     }
-                     catch (StaleElementReferenceException exception){
-                         //wait(2000);
-                         //list_dates_availability =getWebElementsVisible(label_Dates) ;
-                         //class_attribute=list_dates_availability.get(i).getAttribute("class");
-                     }
+                     String class_attribute=list_dates_availability.get(i).getAttribute("class");
+
                      if(class_attribute.contains("danger"))
                      {
                          numberOfNights=0;
@@ -72,9 +65,7 @@ public class RoomSelectionPage extends PageBase {
                  if(numberOfNights!=4)
                  {
                      String current_Date =driver.findElement(label_from_date_period).getAttribute("value");
-                     //Adding date
                      String next_date=getDateWithFormat("dd MMM yyyy",current_Date,12);
-
                      retryClick(btn_Next_Page);
                      Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
                              .withTimeout(Duration.ofSeconds(10))
