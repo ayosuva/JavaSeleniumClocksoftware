@@ -1,7 +1,6 @@
 package com.test.clocksoftware.stepdef;
 
 import com.test.clocksoftware.Util.DriverManager;
-import com.test.clocksoftware.Util.ReusableFunctions;
 import com.test.clocksoftware.pages.*;
 
 import io.cucumber.java.After;
@@ -12,19 +11,10 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import ru.yandex.qatools.ashot.AShot;
-import ru.yandex.qatools.ashot.Screenshot;
-import ru.yandex.qatools.ashot.shooting.ShootingStrategies;
-
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.IOException;
 
 import static org.junit.Assert.assertEquals;
 
-public class book_a_deluxe_apartment_room_stepdef {
+public class BookADeluxeApartmentRoomStepdef {
 
     DriverManager context;
     HomePage homePage;
@@ -34,7 +24,7 @@ public class book_a_deluxe_apartment_room_stepdef {
     PaymentPage   paymentPage;
     String arrival_date;
     private Scenario scenario;
-    public book_a_deluxe_apartment_room_stepdef(DriverManager context){
+    public BookADeluxeApartmentRoomStepdef(DriverManager context){
         this.context = context;
 
     }
