@@ -1,4 +1,17 @@
 **JavaSelenium Clocksoftware**
+It is a Selenium Java based test automation framework and the test scripts written for Clock Software site https://www.clock-software.com/demo-clockpms/index.html
+
+It has following features:
+
+-> Page object Model
+
+-> Extent HTML Report with screenshot
+
+-> BDD with Cucumber
+
+-> Screenshot for both pass and fail steps
+
+-> CI/CD configurable
 
 Import the project in eclipse as Maven project
 
