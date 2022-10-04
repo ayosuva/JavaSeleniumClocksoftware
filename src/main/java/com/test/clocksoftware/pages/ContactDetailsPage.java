@@ -6,8 +6,6 @@ import org.openqa.selenium.WebDriver;
 
 
 public class ContactDetailsPage extends PageBase {
-    WebDriver driver;
-    PageBase pageBase;
 
     public ContactDetailsPage(DriverManager manager) {
         super(manager);
@@ -39,7 +37,7 @@ public class ContactDetailsPage extends PageBase {
     }
 
     public String arrival_date() {
-        return getWebElementVisible(label_arrival).getText().replace(" ", "-");
+        return getWebElementVisible(label_arrival).getText();
     }
 
     public String no_of_nights() {

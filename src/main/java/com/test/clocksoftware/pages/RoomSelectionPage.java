@@ -94,8 +94,8 @@ public class RoomSelectionPage extends PageBase {
     public String  select_Highest_Price_Deluxe_Apartment()
     {
         waitForElementToLoad();
-        String arrival_date=getWebElementVisible(label_selected_Date).getText();
-        SimpleDateFormat simpleDateFormat=new SimpleDateFormat("dd-MMM-yyyy");
+        String arrival_date=getWebElementVisible(label_selected_Date).getText().split(" - ")[0];
+        SimpleDateFormat simpleDateFormat=new SimpleDateFormat("dd MMM yyyy");
         String date= null;
         try {
             date = simpleDateFormat.format(new SimpleDateFormat("dd MMM yyyy").parse(arrival_date));
@@ -116,13 +116,6 @@ public class RoomSelectionPage extends PageBase {
             }
         }
         return date;
-    }
-
-    public void test()
-    {
-        String string = "January 2, 2010";
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM d, yyyy", Locale.ENGLISH);
-        LocalDate date = LocalDate.parse(string, formatter);
     }
 
 
