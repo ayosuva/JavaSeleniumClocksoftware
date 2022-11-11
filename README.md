@@ -13,7 +13,7 @@ It has following features:
 
 -> CI/CD configurable
 
-Import the project in eclipse as Maven project
+Import the project in eclipse/IntelliJ
 
 To run using IDE, Right-click on Runner class and select Run as JUnit
 
