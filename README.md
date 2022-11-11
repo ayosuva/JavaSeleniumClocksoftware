@@ -15,7 +15,7 @@ It has following features:
 
 Import the project in eclipse/IntelliJ
 
-To run using IDE, Right-click on Runner class and select Run as JUnit
+To run using IDE, Right-click on Runner class and select Run option
 
 To run using command line , use command ```mvn clean verify```
 
