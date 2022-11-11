@@ -22,16 +22,6 @@ To run using command line , use command ```mvn clean verify```
 To run cucumber tests with tags , use command ```mvn clean verify -D"cucumber.filter.tags=@order"```
 
 Html report can be found under target/index.html
- 
-### Further Improvements:
-Parallel execution for distributed execution
-
-Multiple browsers handling for cross-browser testing
-
-Extent report for better reporting
-
-JIRA API integration to update the results in JIRA after the test execution
-
 
 # Jenkins Setup:
 
